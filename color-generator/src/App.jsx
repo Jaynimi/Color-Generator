@@ -4,7 +4,7 @@ import Values from "values.js";
 function App() {
 	const [color, setColor] = useState("");
 	const [error, setError] = useState(false);
-	const [list, setList] = useState([]);
+	const [list, setList] = useState(new Values("#b284be").all(10));
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -21,36 +21,42 @@ function App() {
 
 	return (
 		<>
-			<section className="">
-				<h3>Jay&apos;s Colors</h3>
-				<form action="" onSubmit={handleSubmit}>
-					<input
-						type="text"
-						value={color}
-						onChange={(e) => setColor(e.target.value)}
-						placeholder="#f15025"
-						className={`focus:outline-none border-2 border-blue-200 ${
-							error ? "border-4 border-red-500" : null
-						} `}
-					/>
-					<button className="btn" type="submit">
-						Submit
-					</button>
-				</form>
-			</section>
-			<section className="">
-				{list.map((color, index) => {
-					console.log(color);
-					return (
-						<SingleColor
-							key={index}
-							{...color}
-							index={index}
-							hexColor={color.hex}
+			<div className="overflow-hidden bg-box">
+				<section className="flex my-12 place-items-center justify-center">
+					<h3 className="text-center text-4xl text-header font-quicksand mr-12">
+						Jay&apos;s Colors
+					</h3>
+					<form action="" onSubmit={handleSubmit} className="text-center">
+						<input
+							type="text"
+							value={color}
+							onChange={(e) => setColor(e.target.value)}
+							placeholder="#b284Be"
+							className={`focus:outline-none border-2 border-box rounded-sm ${
+								error ? "border-4 border-red-500" : null
+							} `}
 						/>
-					);
-				})}
-			</section>
+						<button
+							className="text-box font-quicksand px-2 py-1 mx-3 bg-header rounded-md"
+							type="submit">
+							Submit
+						</button>
+					</form>
+				</section>
+				<section className="flex flex-column flex-wrap ">
+					{list.map((color, index) => {
+						console.log(color);
+						return (
+							<SingleColor
+								key={index}
+								{...color}
+								index={index}
+								hexColor={color.hex}
+							/>
+						);
+					})}
+				</section>
+			</div>
 		</>
 	);
 }
