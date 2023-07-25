@@ -37,7 +37,7 @@ function App() {
 							} `}
 						/>
 						<button
-							className="text-box font-quicksand px-2 py-1 mx-3 bg-header rounded-md"
+							className=" text-box font font-quicksand px-2 py-1 mx-3 bg-header rounded-md"
 							type="submit">
 							Submit
 						</button>
