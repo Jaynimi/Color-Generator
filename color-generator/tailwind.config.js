@@ -16,6 +16,8 @@ export default {
 			colors: {
 				header: "#352839",
 				box: "#f7f3f9",
+				copygray1: "#e6e6e6",
+				copygray2: "#191919",
 			},
 			gridTemplateColumns: {
 				column: "repeat(auto-fit, minmax(223.33px, 1fr))",
